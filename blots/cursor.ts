@@ -71,7 +71,7 @@ class Cursor extends EmbedBlot {
   }
 
   restore() {
-    if (this.selection.composing || this.parent == null) return null;
+    if (this.selection && this.selection.composing || this.parent == null) return;
     const range = this.selection.getNativeRange();
     // Browser may push down styles/nodes inside the cursor blot.
     // https://dvcs.w3.org/hg/editing/raw-file/tip/editing.html#push-down-values
